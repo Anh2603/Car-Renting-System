@@ -1,0 +1,157 @@
+/* ===== SUCCESS PAGE STYLES ===== */
+.success-page {
+  background: var(--color-bg-darkest);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+/* Icon check với vòng trang trí */
+.success-icon-wrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.1);
+  border: 2px solid var(--color-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Vòng trang trí */
+.success-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.success-ring--1 {
+  width: 100px;
+  height: 100px;
+  animation-delay: 0s;
+}
+
+.success-ring--2 {
+  width: 130px;
+  height: 130px;
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse-ring {
+  0%   { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0;   transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* Tiêu đề */
+.success-title {
+  font-family: var(--font-condensed);
+  font-weight: 900;
+  font-size: 44px;
+  color: var(--color-text-white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Mô tả */
+.success-sub {
+  font-size: 16px;
+  color: #6b7a99;
+  margin-top: 16px;
+  line-height: 1.75;
+}
+.success-sub strong { color: var(--color-text-light); }
+
+/* Hộp mã đặt xe */
+.success-ref-box {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-bg-border);
+  border-radius: 12px;
+  padding: 20px 40px;
+  margin: 32px auto;
+  display: inline-block;
+}
+
+.success-ref-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7a99;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.success-ref-val {
+  font-family: var(--font-condensed);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--color-cyan);
+  margin-top: 6px;
+  letter-spacing: 2px;
+}
+
+/* Dòng tổng tiền */
+.success-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.success-price-label {
+  font-size: 16px;
+  color: #8a9ab5;
+}
+
+.success-price-val {
+  font-family: var(--font-condensed);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-text-white);
+}
+
+/* Email note */
+.success-email-note {
+  font-size: 14px;
+  color: #4a5568;
+  margin: 12px 0 32px;
+}
+
+/* Nút về trang chủ */
+.success-home-btn {
+  background: var(--color-cyan);
+  color: var(--color-bg-darkest);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 40px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: var(--font-main);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.success-home-btn:hover {
+  background: var(--color-cyan-dark);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,77 @@
+/* ===== NAVBAR STYLES ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 80px;
+  position: relative;
+  z-index: 10;
+  background: rgba(10, 25, 47, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Biến thể tối dùng cho các trang nội bộ */
+.navbar--dark {
+  background: #0A192F;
+  backdrop-filter: none;
+}
+
+/* Logo */
+.nav-logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-text-white);
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Cụm bên phải */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Ngôn ngữ/tiền tệ */
+.nav-locale {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+.nav-locale-dot { font-size: 8px; }
+
+/* Nút Login */
+.nav-login-btn {
+  background: var(--color-cyan);
+  color: var(--color-bg-darkest);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-main);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.nav-login-btn:hover { background: var(--color-cyan-dark); }
+
+/* Icon user */
+.nav-user-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1a2744;
+  border: 1.5px solid var(--color-bg-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: border-color 0.2s;
+}
+.nav-user-icon:hover { border-color: var(--color-cyan); color: var(--color-cyan); }

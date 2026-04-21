@@ -1,0 +1,80 @@
+/* ===== FOOTER TRANG CHỦ ===== */
+.footer {
+  background: var(--color-bg-darkest);
+  border-top: 1px solid var(--color-bg-border);
+  padding: 48px 40px 32px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-text-white);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: #4a5568;
+  margin-top: 8px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  font-size: 13px;
+  color: var(--color-text-dim);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.footer-link:hover { color: var(--color-cyan); }
+
+/* ===== FLEET FOOTER ===== */
+.fleet-footer {
+  background: #0A192F;
+  padding: 40px 48px;
+  text-align: center;
+}
+
+.fleet-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.fleet-footer-link {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.fleet-footer-link:hover { color: var(--color-cyan); }
+
+.fleet-footer-copy {
+  font-size: 12px;
+  color: #4a5568;
+}

@@ -1,0 +1,311 @@
+/* ===== CONFIRM PAGE ===== */
+.confirm-page {
+  background: #F8FAFC;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Header ─── */
+.confirm-header {
+  padding: 48px 48px 0;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.confirm-page-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 32px;
+  color: #0A192F;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Outer container ─── */
+.confirm-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 48px 56px;
+  flex: 1;
+}
+
+/* ─── Main dark card ─── */
+.confirm-card {
+  background: #0A192F;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════
+   CỘT TRÁI
+═══════════════════════════════════════ */
+.confirm-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 32px 36px;
+}
+
+/* Khung hiển thị xe (no extra bg — already on dark card) */
+.confirm-car-display {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+
+.confirm-car-img {
+  width: 100%;
+  max-width: 420px;
+  height: 280px;
+  object-fit: contain;
+  border-radius: 12px;
+  filter: drop-shadow(0 8px 32px rgba(0,0,0,0.5));
+}
+
+.confirm-car-placeholder {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tên xe */
+.confirm-car-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 24px;
+  letter-spacing: 0.04em;
+}
+
+/* Thông số xe */
+.confirm-car-attrs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.confirm-attr {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  color: #94B4C8;
+  letter-spacing: 0.04em;
+}
+
+/* ═══════════════════════════════════════
+   CỘT PHẢI
+═══════════════════════════════════════ */
+.confirm-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 36px 36px;
+  background: #0A192F;
+  border-left: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Section label */
+.confirm-section-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748B;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+/* Booking option card (selected state) */
+.confirm-option-card {
+  border-radius: 12px;
+  border: 1.5px solid #1E3A5F;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.04);
+}
+
+.confirm-option-card--selected {
+  border-color: #22D3EE;
+  background: rgba(34, 211, 238, 0.06);
+}
+
+/* Km package card */
+.confirm-km-card {
+  border-radius: 12px;
+  border: 1px solid #1E3A5F;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.03);
+}
+
+.confirm-option-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Radio */
+.confirm-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #22D3EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.confirm-radio-inner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22D3EE;
+}
+
+.confirm-option-title {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.confirm-option-sub {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: #64748B;
+  margin-top: 3px;
+}
+
+/* Badge INCLUDED (booking option) */
+.confirm-badge {
+  background: rgba(34, 211, 238, 0.15);
+  color: #22D3EE;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+/* Badge INCLUDED (km) — text only, no border */
+.confirm-km-badge {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+/* ─── Price Box ─── */
+.price-box {
+  background: #0D1B2E;
+  border-radius: 14px;
+  border: 1px solid #1E3A5F;
+  padding: 28px 24px;
+}
+
+.price-daily-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.price-amount-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.price-amount {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 40px;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.price-unit {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.price-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  border-top: 1px solid #1E3A5F;
+}
+
+.price-total-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #64748B;
+}
+
+.price-total-val {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+  color: #22D3EE;
+}
+
+/* ─── NEXT Button ─── */
+.next-btn {
+  background: #22D3EE;
+  color: #0A192F;
+  border: none;
+  border-radius: 12px;
+  padding: 18px 28px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.next-btn:hover {
+  background: #06B6D4;
+  transform: translateY(-2px);
+}

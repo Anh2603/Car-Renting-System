@@ -1,0 +1,314 @@
+/* ===== HOMEPAGE STYLES ===== */
+
+/* ─────────────────────────────────────────
+   1. HERO SECTION
+───────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  /* Khớp màu nền với màu studio tối của hình xe mới */
+  background: #080e1c;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wrapper xe nền */
+.hero-car-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  /* Căn giữa theo chiều dọc để xe không bị cắt */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-car-img {
+  /* object-fit: contain để hiển thị toàn bộ xe, không bị cắt */
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+  margin-top: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Overlay chỉ cần fade nhẹ ở đáy để nối với tagline section */
+.hero-car-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    /* Fade nhẹ 2 cạnh trái/phải */
+    linear-gradient(to right,
+      rgba(8, 14, 28, 0.55) 0%,
+      transparent 12%,
+      transparent 88%,
+      rgba(8, 14, 28, 0.55) 100%
+    ),
+    /* Fade phía trên (navbar area) */
+    linear-gradient(to bottom,
+      rgba(8, 14, 28, 0.5) 0%,
+      transparent 12%,
+      transparent 52%,
+      /* Fade mạnh ở đáy để nối vào tagline section */
+      rgba(8, 14, 28, 0.65) 70%,
+      #080e1c 100%
+    );
+  pointer-events: none;
+}
+
+/* Khu vực booking widget nổi lên trên hình xe */
+.hero-widget-area {
+  position: relative;
+  z-index: 10;
+  margin-top: auto;
+  padding: 0 0 56px;
+}
+
+
+/* ─────────────────────────────────────────
+   2. TAGLINE SECTION
+───────────────────────────────────────── */
+.tagline-section {
+  background: linear-gradient(180deg, #080e1c 0%, #080d1a 100%);
+  padding: 80px 40px 70px;
+  text-align: center;
+}
+
+.tagline-h1 {
+  font-family: var(--font-condensed);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 1.05;
+  color: var(--color-text-white);
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.tagline-h1--cyan {
+  color: var(--color-cyan);
+}
+
+.tagline-sub {
+  font-size: 15px;
+  color: #7a8fa8;
+  max-width: 500px;
+  margin: 28px auto 0;
+  line-height: 1.8;
+}
+
+.tagline-divider {
+  width: 72px;
+  height: 3px;
+  background: var(--color-cyan);
+  margin: 36px auto 0;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+
+/* ─────────────────────────────────────────
+   3. BENTO FEATURES GRID
+───────────────────────────────────────── */
+.bento-section {
+  background: linear-gradient(180deg, #080d1a 0%, #060c18 100%);
+  padding: 12px 40px 56px;
+}
+
+.bento-grid {
+  display: grid;
+  /* 2 cột chính */
+  grid-template-columns: 1.55fr 1fr;
+  /* 2 hàng */
+  grid-template-rows: auto auto;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Nền card chung ── */
+.bento-card {
+  background: #0d1c38;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 36px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+.bento-card:hover {
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+/* ── Card Wide — Global Access (row 1, col 1) ── */
+.bento-card--wide {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 200px;
+  gap: 24px;
+}
+
+.bento-wide-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Globe decorative */
+.bento-globe-deco {
+  flex-shrink: 0;
+  opacity: 0.35;
+  pointer-events: none;
+  margin-right: -8px;
+  margin-bottom: -8px;
+}
+
+/* ── Card Insurance — Elite Insurance (row 1, col 2) ── */
+.bento-card--insurance {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* ── Card Keyless Entry (row 2, col 1) ── */
+.bento-card--keyless {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* ── Card Subscription (row 2, col 2) ── */
+.bento-card--subscription {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 36px 0 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  overflow: hidden;
+}
+
+.bento-sub-content {
+  flex: 1;
+  min-width: 0;
+  padding-right: 16px;
+}
+
+/* Wheel image */
+.bento-wheel-deco {
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  margin-right: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.bento-wheel-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  /* Darkening to match the dark navy wheel silhouette in the design */
+  filter: brightness(0.32) saturate(0.25) contrast(1.05);
+  mix-blend-mode: normal;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.95;
+}
+
+
+/* ── Eyebrow text ── */
+.bento-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-cyan);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+/* ── Title variants ── */
+.bento-title {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  color: var(--color-text-white);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.bento-title--large {
+  font-size: 30px;
+}
+
+.bento-title--medium {
+  font-size: 22px;
+}
+
+/* ── Description ── */
+.bento-desc {
+  font-size: 14px;
+  color: #7a8fa8;
+  margin-top: 14px;
+  line-height: 1.7;
+  max-width: 400px;
+}
+
+/* ── Icon wrap ── */
+.bento-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+/* ── Explore link ── */
+.bento-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-cyan);
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 22px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  letter-spacing: 0.3px;
+}
+.bento-link:hover {
+  opacity: 0.75;
+}
+
+/* ── Learn More button ── */
+.bento-learn-btn {
+  margin-top: 22px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  color: var(--color-text-light);
+  border-radius: 8px;
+  padding: 9px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  letter-spacing: 0.2px;
+}
+.bento-learn-btn:hover {
+  border-color: var(--color-cyan);
+  color: var(--color-cyan);
+  background: rgba(0, 212, 255, 0.05);
+}

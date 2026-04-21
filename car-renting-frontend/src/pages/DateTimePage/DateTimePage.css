@@ -1,0 +1,345 @@
+/* ===== DATE & TIME PAGE STYLES ===== */
+.datetime-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #c8d8e8 0%, #b0c4d4 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.datetime-nav {
+  background: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.datetime-nav-logo {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-text-white);
+}
+
+.datetime-nav-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1a2744;
+  border: 1.5px solid #3a4a6a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+/* Body — căn giữa modal */
+.datetime-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+/* Modal */
+.datetime-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 880px;
+  padding: 48px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14);
+  position: relative;
+}
+
+/* Nút đóng */
+.datetime-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #8a9ab5;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.datetime-close:hover { background: #f0f4f8; }
+
+/* Header modal */
+.datetime-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.datetime-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #00a8cc;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.datetime-title {
+  font-family: var(--font-condensed);
+  font-weight: 900;
+  font-size: 36px;
+  color: #1a1a2e;
+}
+
+.datetime-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #00a8cc;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* Layout 2 cột: lịch | chi tiết */
+.datetime-content {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 40px;
+}
+
+/* ===== LỊCH ===== */
+.cal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cal-month-title {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 20px;
+  color: #1a1a2e;
+}
+
+.cal-nav-btns { display: flex; gap: 8px; }
+
+.cal-nav-btn {
+  background: #f0f4f8;
+  border: none;
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4a5568;
+  transition: background 0.2s;
+}
+.cal-nav-btn:hover { background: #e2e8f0; }
+
+/* Grid lịch */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+/* Header ngày */
+.cal-header-cell {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #8a9ab5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 0;
+}
+
+/* Ô ngày */
+.cal-day {
+  text-align: center;
+  padding: 10px 4px;
+  font-size: 14px;
+  color: #4a5568;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+.cal-day:hover { background: #e0f7ff; color: #0096c7; }
+
+.cal-day--disabled { color: #d1d5db; cursor: default; pointer-events: none; }
+
+/* Ngày được chọn (điểm đơn) */
+.cal-day--selected {
+  background: var(--color-cyan);
+  color: var(--color-bg-darkest);
+  font-weight: 800;
+  border-radius: 50%;
+}
+
+/* Ngày bắt đầu khoảng */
+.cal-day--range-start {
+  background: var(--color-cyan);
+  color: var(--color-bg-darkest);
+  font-weight: 800;
+  border-radius: 50% 0 0 50%;
+}
+
+/* Ngày trong khoảng */
+.cal-day--in-range {
+  background: rgba(0, 212, 255, 0.14);
+  color: #0096c7;
+  border-radius: 0;
+}
+
+/* Ngày kết thúc khoảng */
+.cal-day--range-end {
+  background: var(--color-cyan);
+  color: var(--color-bg-darkest);
+  font-weight: 800;
+  border-radius: 0 50% 50% 0;
+}
+
+/* ===== DETAIL CARDS ===== */
+.detail-card {
+  background: #f8f9fb;
+  border: 1.5px solid var(--color-cyan);
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.detail-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.detail-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.detail-dot--active { background: var(--color-cyan); }
+.detail-dot--outline { background: rgba(0, 212, 255, 0.12); border: 1.5px solid var(--color-cyan); }
+
+.detail-card__label-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #00a8cc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-field-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8a9ab5;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+}
+
+.detail-field-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+/* Time input */
+.time-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.time-input-field {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  width: 60px;
+  font-family: var(--font-main);
+  background: transparent;
+}
+
+.time-ampm-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.time-ampm-btn {
+  background: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: var(--font-main);
+  color: #8a9ab5;
+  transition: background 0.15s, color 0.15s;
+}
+.time-ampm-btn:hover { background: #e0f7ff; color: #0096c7; }
+.time-ampm-btn--active { background: var(--color-cyan); color: var(--color-bg-darkest); }
+
+/* Dòng tổng số ngày */
+.duration-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.duration-label { font-size: 14px; color: #8a9ab5; }
+
+.duration-value {
+  font-size: 16px;
+  font-weight: 800;
+  color: #00a8cc;
+}
+
+/* Nút xác nhận */
+.confirm-schedule-btn {
+  display: block;
+  width: 100%;
+  background: var(--color-cyan);
+  color: var(--color-bg-darkest);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 900;
+  font-family: var(--font-main);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.2s;
+}
+.confirm-schedule-btn:hover { background: var(--color-cyan-dark); }

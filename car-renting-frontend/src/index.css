@@ -1,0 +1,58 @@
+/* ===== CSS GLOBAL & RESET ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ===== FONT SYSTEM ===== */
+  --font-heading: 'Manrope', sans-serif;   /* Headings, CTAs, labels */
+  --font-body: 'Inter', sans-serif;        /* Body text, data, inputs */
+
+  /* Legacy aliases (backward-compat) */
+  --font-main: 'Manrope', sans-serif;
+  --font-condensed: 'Manrope', sans-serif;
+
+  /* ===== COLOR PALETTE (Azure Velocity) ===== */
+  /* Primary / Accent */
+  --color-cyan: #22D3EE;
+  --color-cyan-dark: #06B6D4;
+  --color-cyan-dim: rgba(34, 211, 238, 0.15);
+
+  /* Background scale */
+  --color-bg-light:    #F8FAFC;   /* Slate 50 — page background */
+  --color-bg-white:    #FFFFFF;   /* Card surface */
+  --color-bg-darkest:  #0A192F;   /* Navy 950 — header/footer/CTA bg */
+  --color-bg-dark:     #0A192F;
+  --color-bg-card:     #0D1B2E;   /* slightly lighter navy for inset blocks */
+  --color-bg-border:   #1E3A5F;
+
+  /* Text */
+  --color-text-white:  #FFFFFF;
+  --color-text-light:  #E2E8F0;   /* Slate 200 */
+  --color-text-muted:  #64748B;   /* Slate 500 */
+  --color-text-dim:    #475569;   /* Slate 600 */
+  --color-text-dark:   #0A192F;   /* Slate 950 */
+
+  /* Border */
+  --color-border:      #E2E8F0;   /* Slate 200 */
+}
+
+/* ===== BASE BODY ===== */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-darkest);
+  color: var(--color-text-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-bg-darkest); }
+::-webkit-scrollbar-thumb { background: var(--color-cyan); border-radius: 3px; }
+
+/* ===== HELPERS ===== */
+.page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }

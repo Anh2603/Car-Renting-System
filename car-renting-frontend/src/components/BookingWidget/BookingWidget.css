@@ -1,0 +1,119 @@
+/* ===== BOOKING WIDGET STYLES ===== */
+.widget-wrapper {
+  padding: 0 40px;
+  position: relative;
+  z-index: 5;
+}
+
+.booking-widget {
+  background: rgba(10, 18, 35, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 12px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Tabs */
+.booking-tabs {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.booking-tab {
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-cyan);
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--color-cyan);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-main);
+  margin-bottom: -1px;
+}
+
+/* Hàng inputs */
+.booking-inputs {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr auto;
+  align-items: end;
+  padding: 0 16px 16px;
+  gap: 4px;
+}
+
+.booking-field {
+  padding: 12px 16px;
+}
+
+.booking-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7a99;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+/* Hộp input */
+.booking-input-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: border-color 0.2s;
+  min-height: 50px;
+}
+.booking-input-box:hover { border-color: rgba(0, 212, 255, 0.35); }
+
+/* Input text (địa điểm) */
+.booking-input-text {
+  font-size: 14px;
+  color: var(--color-text-light);
+  font-weight: 500;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-family: var(--font-main);
+}
+.booking-input-text::placeholder { color: #4a5568; }
+
+.booking-input-value {
+  font-size: 14px;
+  color: var(--color-text-light);
+  font-weight: 500;
+}
+
+.booking-input-placeholder {
+  font-size: 14px;
+  color: #4a5568;
+}
+
+/* Nút SHOW CARS */
+.show-cars-btn {
+  background: var(--color-cyan);
+  color: var(--color-bg-darkest);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 900;
+  font-family: var(--font-condensed);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  margin: 12px 16px 16px 8px;
+  height: 50px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.show-cars-btn:hover {
+  background: var(--color-cyan-dark);
+  transform: translateY(-1px);
+}

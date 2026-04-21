@@ -1,0 +1,151 @@
+/* ===== LOGIN PAGE STYLES ===== */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #c8d8e8 0%, #b8cedd 50%, #a8becc 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.login-nav {
+  background: #2c3e50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.login-nav-logo {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-text-white);
+  cursor: pointer;
+  user-select: none;
+}
+
+.login-nav-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1a2744;
+  border: 1.5px solid #3a4a6a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+/* Body — căn giữa card */
+.login-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+/* Card đăng nhập */
+.login-card {
+  background: rgba(80, 100, 140, 0.72);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 48px 44px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+/* Brand name */
+.login-brand-title {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-text-white);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* Thanh màu cyan dưới brand */
+.login-brand-bar {
+  width: 48px;
+  height: 3px;
+  background: var(--color-cyan);
+  margin: 10px auto 32px;
+  border-radius: 2px;
+}
+
+/* Tiêu đề Sign In */
+.login-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #b8d4e8;
+  margin-bottom: 28px;
+}
+
+/* Label */
+.login-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #8ab0c8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+/* Input */
+.login-input {
+  display: block;
+  width: 100%;
+  background: #0a0e1a;
+  border: 1px solid #1a2744;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--color-text-light);
+  font-family: var(--font-main);
+  outline: none;
+  margin-bottom: 20px;
+  transition: border-color 0.2s;
+}
+.login-input:focus { border-color: var(--color-cyan); }
+.login-input::placeholder { color: #4a5a6a; }
+
+/* Nút Sign In */
+.login-submit {
+  display: block;
+  width: 100%;
+  background: var(--color-cyan);
+  color: var(--color-bg-darkest);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: var(--font-main);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+.login-submit:hover { background: var(--color-cyan-dark); }
+
+/* Footer link */
+.login-footer-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #8ab0c8;
+}
+
+.login-footer-link--cta {
+  color: var(--color-cyan);
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}

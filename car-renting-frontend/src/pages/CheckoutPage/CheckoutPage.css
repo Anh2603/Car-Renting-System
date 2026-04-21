@@ -1,0 +1,366 @@
+/* ===== CHECKOUT PAGE ===== */
+.checkout-page {
+  background: #F8FAFC;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Header ─── */
+.checkout-header {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 48px 0;
+}
+
+.checkout-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 32px;
+  color: #0A192F;
+  letter-spacing: -0.02em;
+}
+
+.checkout-subtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #64748B;
+  margin-top: 8px;
+}
+
+/* ─── Main 2-column grid ─── */
+.checkout-main {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 32px;
+  padding: 32px 48px 56px;
+  flex: 1;
+}
+
+/* ═══════════════════════════════════════
+   CỘT TRÁI — BOOKING SUMMARY CARD
+═══════════════════════════════════════ */
+.checkout-summary-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ảnh xe */
+.checkout-car-img-wrap {
+  background: linear-gradient(160deg, #0A192F 0%, #0D1B2E 100%);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.selected-vehicle-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #22D3EE;
+  color: #0A192F;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  z-index: 2;
+}
+
+.checkout-car-img {
+  width: 100%;
+  max-width: 320px;
+  height: 200px;
+  object-fit: contain;
+  padding: 16px;
+  filter: drop-shadow(0 4px 24px rgba(0,0,0,0.4));
+}
+
+.checkout-car-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+/* Body tóm tắt */
+.checkout-summary-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Tên xe */
+.checkout-car-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18px;
+  color: #0A192F;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Địa điểm */
+.checkout-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #64748B;
+  margin-top: 6px;
+}
+
+/* Divider */
+.checkout-divider {
+  height: 1px;
+  background: #F1F5F9;
+  margin: 16px 0;
+}
+
+/* Ngày đón/trả */
+.checkout-dates-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.checkout-date-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 5px;
+}
+
+.checkout-date-value {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: #0A192F;
+}
+
+.checkout-date-time {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #64748B;
+  margin-top: 3px;
+}
+
+/* Duration */
+.checkout-duration-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F8FAFC;
+  border-radius: 8px;
+  padding: 11px 14px;
+}
+
+.checkout-duration-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #64748B;
+}
+
+.checkout-duration-val {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: #22D3EE;
+}
+
+/* Daily rate */
+.checkout-rate-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-rate-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #64748B;
+}
+
+.checkout-rate-val {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Total */
+.checkout-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-total-label {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 800;
+  color: #0A192F;
+}
+
+.checkout-total-val {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 800;
+  color: #22D3EE;
+}
+
+/* ═══════════════════════════════════════
+   CỘT PHẢI — PAYMENT FORM
+═══════════════════════════════════════ */
+.payment-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payment-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: #0A192F;
+}
+
+/* Bank Card button */
+.payment-method-btn {
+  width: 100%;
+  background: #0A192F;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  padding: 18px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background 0.2s;
+}
+.payment-method-btn:hover { background: #1E293B; }
+
+/* Field wrapper */
+.payment-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Label */
+.payment-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Input wrapper (relative for icons) */
+.payment-input-wrap {
+  position: relative;
+}
+
+/* Input */
+.payment-input {
+  display: block;
+  width: 100%;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #0A192F;
+  outline: none;
+  background: #FFFFFF;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.payment-input:focus {
+  border-color: #22D3EE;
+  box-shadow: 0 0 0 3px rgba(34,211,238,0.12);
+}
+.payment-input::placeholder { color: #CBD5E1; }
+
+/* Card type mini icons (decorative) */
+.payment-card-icons {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.card-icon-box {
+  display: block;
+  width: 28px;
+  height: 18px;
+  background: #E2E8F0;
+  border-radius: 4px;
+}
+
+/* Expiry + CVV row */
+.payment-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* CVV info icon */
+.cvv-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* CONFIRM & PAY */
+.confirm-pay-btn {
+  display: block;
+  width: 100%;
+  background: #22D3EE;
+  color: #0A192F;
+  border: none;
+  border-radius: 12px;
+  padding: 18px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.confirm-pay-btn:hover {
+  background: #06B6D4;
+  transform: translateY(-2px);
+}

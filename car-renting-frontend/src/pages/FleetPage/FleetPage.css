@@ -1,0 +1,179 @@
+/* Fonts & tokens are loaded globally via index.css */
+/* Local aliases for readability */
+:root {
+  --primary-text:   #0A192F;
+  --secondary-text: #64748B;
+  --bg-slate-50:    #F8FAFC;
+  --card-bg:        #FFFFFF;
+  --accent-cyan:    #22D3EE;
+}
+
+
+/* ===== FLEET PAGE MAIN STYLES ===== */
+.fleet-page {
+  background-color: var(--bg-slate-50);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+}
+
+/* Container giới hạn max-width theo spec */
+.fleet-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 64px 32px; /* Padding Y: 64px, Padding X: 32px */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER & TITLE ===== */
+.fleet-header {
+  margin-bottom: 32px; /* Khoảng cách xuống filter bar */
+}
+
+.fleet-h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 36px;
+  color: var(--primary-text);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ===== FILTERS BAR ===== */
+.fleet-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Gap giữa các nút Filter */
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+/* Pill tóm tắt booking */
+.filter-summary-pill {
+  background: var(--primary-text); /* Sử dụng màu tối #0A192F như ảnh */
+  border-radius: 999px; /* Bo tròn hoàn toàn dạng pill */
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.filter-summary-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.filter-pill-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: #94A3B8; /* Slate 400 */
+  font-weight: 500;
+}
+
+.filter-pill-value {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.filter-divider {
+  width: 1px;
+  height: 24px;
+  background: #334155; /* Slate 700 */
+  flex-shrink: 0;
+}
+
+.filter-edit-icon {
+  color: var(--accent-cyan);
+  font-size: 14px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+/* Ô tìm kiếm */
+.fleet-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.fleet-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-text);
+}
+
+.fleet-search-input {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 8px 16px 8px 36px; /* Padding theo spec 8px 16px */
+  font-size: 14px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--primary-text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.fleet-search-input:focus {
+  border-color: var(--accent-cyan);
+}
+
+.fleet-search-input::placeholder {
+  color: #94A3B8;
+}
+
+/* Nút filter/sort */
+.fleet-filter-btn {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 8px 16px; /* Padding theo spec */
+  font-size: 14px;
+  color: var(--primary-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.fleet-filter-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--primary-text);
+}
+
+/* ===== GRID XE ===== */
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px; /* Gap giữa các card là 24px theo spec */
+}
+
+/* Thông báo rỗng */
+.fleet-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  font-size: 16px;
+  color: var(--secondary-text);
+  text-align: center;
+}

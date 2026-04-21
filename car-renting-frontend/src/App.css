@@ -1,0 +1,6 @@
+/* App.css — Không cần nhiều style ở cấp này,
+   mỗi component/page có CSS riêng. */
+.car-app {
+  width: 100%;
+  min-height: 100vh;
+}
