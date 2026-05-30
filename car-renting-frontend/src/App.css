@@ -1,0 +1,56 @@
+.car-app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.global-page-back-btn {
+  position: fixed;
+  top: 108px;
+  left: 28px;
+  z-index: 9999;
+  border: 1px solid rgba(214, 225, 240, 0.95);
+  background: rgba(255, 255, 255, 0.96);
+  color: #071225;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  font-family: var(--font-main, system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  box-shadow: 0 14px 34px rgba(15, 35, 65, 0.16);
+  backdrop-filter: blur(12px);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.global-page-back-btn:hover {
+  background: #27d3ee;
+  border-color: #27d3ee;
+  color: #06101f;
+  box-shadow: 0 18px 42px rgba(0, 168, 204, 0.22);
+  transform: translateY(-1px);
+}
+
+.global-page-back-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+@media (max-width: 720px) {
+  .global-page-back-btn {
+    top: 92px;
+    left: 14px;
+    min-height: 42px;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+}

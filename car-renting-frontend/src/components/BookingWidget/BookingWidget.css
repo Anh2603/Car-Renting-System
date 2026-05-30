@@ -1,0 +1,317 @@
+/* ===== BOOKING WIDGET STYLES ===== */
+.widget-wrapper {
+  padding: 0 40px;
+  position: relative;
+  z-index: 50;
+  overflow: visible;
+}
+
+.booking-widget {
+  background: rgba(10, 18, 35, 0.88);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 212, 255, 0.16);
+  border-radius: 16px;
+  max-width: 1040px;
+  margin: 0 auto;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.26);
+  overflow: visible;
+}
+
+.booking-tabs {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.booking-tab {
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-cyan);
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--color-cyan);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-main);
+  margin-bottom: -1px;
+}
+
+.booking-inputs {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr auto;
+  align-items: end;
+  padding: 0 16px 16px;
+  gap: 4px;
+  overflow: visible;
+}
+
+.booking-field {
+  padding: 12px 16px;
+}
+
+.booking-field--location {
+  position: relative;
+  z-index: 100;
+  overflow: visible;
+}
+
+.booking-field--clickable {
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.booking-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #7283a3;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  margin-bottom: 8px;
+}
+
+.booking-input-box {
+  background: rgba(255, 255, 255, 0.065);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  min-height: 50px;
+  width: 100%;
+}
+
+.booking-input-box:hover,
+.booking-field--clickable:hover .booking-input-box,
+.district-select-trigger--open {
+  border-color: rgba(0, 212, 255, 0.48);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.08);
+}
+
+.booking-field-icon {
+  flex-shrink: 0;
+}
+
+.booking-input-value {
+  font-size: 14px;
+  color: var(--color-text-light);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.booking-input-placeholder {
+  font-size: 14px;
+  color: #66748f;
+  font-weight: 600;
+}
+
+.district-select-trigger {
+  color: var(--color-text-light);
+  font-family: var(--font-main);
+  cursor: pointer;
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.district-select-trigger span:nth-of-type(1) {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.district-select-chevron {
+  margin-left: auto;
+  color: var(--color-cyan);
+  font-size: 16px;
+  line-height: 1;
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+.district-select-trigger--open .district-select-chevron {
+  transform: translateY(-1px) rotate(180deg);
+}
+
+.district-dropdown {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: calc(100% - 2px);
+
+  max-height: 360px;
+  overflow-y: auto;
+
+  background: #071225;
+  border: 1px solid rgba(0, 212, 255, 0.45);
+  border-radius: 14px;
+  padding: 8px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+}
+
+.district-dropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.district-dropdown::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+}
+
+.district-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.45);
+  border-radius: 999px;
+}
+
+.district-dropdown-header {
+  color: #7f93b3;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  padding: 8px 10px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 4px;
+}
+
+.district-option {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #dce8ff;
+  border-radius: 10px;
+  padding: 11px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.district-option:hover {
+  background: rgba(0, 212, 255, 0.12);
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+.district-option--selected {
+  background: rgba(0, 212, 255, 0.18);
+  color: var(--color-cyan);
+}
+
+.district-option-check {
+  color: var(--color-cyan);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.booking-location-note {
+  color: #5d7192;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 8px;
+  line-height: 1.35;
+}
+
+.show-cars-btn {
+  background: var(--color-cyan);
+  color: var(--color-bg-darkest);
+  border: none;
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 900;
+  font-family: var(--font-condensed);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  margin: 12px 16px 16px 8px;
+  height: 50px;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.show-cars-btn:hover {
+  background: var(--color-cyan-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(0, 212, 255, 0.18);
+}
+
+@media (max-width: 980px) {
+  .booking-inputs {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .booking-field--location {
+    grid-column: 1 / -1;
+  }
+
+  .show-cars-btn {
+    grid-column: 1 / -1;
+    margin: 12px 16px 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .widget-wrapper {
+    padding: 0 18px;
+  }
+
+  .booking-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-tab {
+    padding: 14px 22px;
+  }
+
+  .booking-field {
+    padding: 11px 14px;
+  }
+
+  .district-dropdown {
+    left: 14px;
+    right: 14px;
+    max-height: 240px;
+  }
+}
+
+.home-page,
+.home-wrapper,
+.hero-section,
+.hero-content,
+.hero-inner,
+.hero-booking-area {
+  overflow: visible !important;
+}
+
+.hero-section {
+  position: relative;
+  z-index: 50;
+}
+
+.hero-booking-area,
+.widget-wrapper {
+  position: relative;
+  z-index: 500;
+}
+
+.premium-section,
+.features-section,
+.bento-section,
+.home-intro-section,
+.home-content-section {
+  position: relative;
+  z-index: 1;
+}

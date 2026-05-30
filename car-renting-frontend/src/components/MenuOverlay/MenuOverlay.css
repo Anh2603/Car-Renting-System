@@ -1,0 +1,172 @@
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #ffffff;
+  color: #071225;
+  overflow-y: auto;
+}
+
+.menu-overlay-topbar {
+  min-height: 86px;
+  padding: 18px 12vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e7ecf3;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.menu-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.menu-brand-mark {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: var(--color-cyan);
+  color: #06101f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-condensed);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.menu-brand-title {
+  color: #071225;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.menu-brand-subtitle {
+  color: #718096;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.menu-close-btn {
+  width: 54px;
+  height: 54px;
+  border: 2px solid #071225;
+  border-radius: 12px;
+  background: transparent;
+  color: #071225;
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-close-btn:hover {
+  background: #071225;
+  color: #ffffff;
+}
+
+.menu-overlay-content {
+  width: min(760px, calc(100% - 40px));
+  margin: 38px auto 80px;
+}
+
+.menu-overlay-content--single {
+  display: block;
+}
+
+.menu-section-label {
+  color: #8a98ad;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.menu-list {
+  display: grid;
+}
+
+.menu-item {
+  border: none;
+  border-bottom: 1px solid #e7ecf3;
+  background: transparent;
+  color: #071225;
+  font-family: var(--font-main);
+  text-align: left;
+  padding: 18px 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.menu-item:hover {
+  color: var(--color-cyan);
+  transform: translateX(4px);
+}
+
+.menu-item-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.menu-item-copy strong {
+  color: inherit;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.menu-item-copy small {
+  color: #718096;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.menu-item:hover .menu-item-copy small {
+  color: #4e657d;
+}
+
+.menu-item-arrow {
+  font-size: 20px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 760px) {
+  .menu-overlay-topbar {
+    padding: 14px 22px;
+  }
+
+  .menu-brand-mark {
+    width: 48px;
+    height: 48px;
+  }
+
+  .menu-brand-title {
+    font-size: 16px;
+  }
+
+  .menu-close-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .menu-item-copy strong {
+    font-size: 21px;
+  }
+
+  .menu-item-copy small {
+    font-size: 12px;
+  }
+}

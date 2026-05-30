@@ -1,0 +1,585 @@
+/* ===== CHECKOUT PAGE ===== */
+.checkout-page {
+  background: #F8FAFC;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Header ─── */
+.checkout-header {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 48px 0;
+}
+
+.checkout-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 32px;
+  color: #0A192F;
+  letter-spacing: -0.02em;
+}
+
+.checkout-subtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #64748B;
+  margin-top: 8px;
+}
+
+/* ─── Main 2-column grid ─── */
+.checkout-main {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 32px;
+  padding: 32px 48px 56px;
+  flex: 1;
+}
+
+/* ═══════════════════════════════════════
+   CỘT TRÁI — BOOKING SUMMARY CARD
+═══════════════════════════════════════ */
+.checkout-summary-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+/* Ảnh xe */
+.checkout-car-img-wrap {
+  background: radial-gradient(circle at top, rgba(34, 211, 238, 0.22), transparent 38%),
+              linear-gradient(160deg, #0A192F 0%, #0D1B2E 100%);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.checkout-car-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: auto 32px 22px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  filter: blur(12px);
+}
+
+.selected-vehicle-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #22D3EE;
+  color: #0A192F;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 5px 13px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  z-index: 2;
+  box-shadow: 0 8px 22px rgba(34, 211, 238, 0.28);
+}
+
+.checkout-car-img {
+  width: 100%;
+  max-width: 320px;
+  height: 200px;
+  object-fit: contain;
+  padding: 16px;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.4));
+  position: relative;
+  z-index: 1;
+}
+
+.checkout-car-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Body tóm tắt */
+.checkout-summary-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Tên xe */
+.checkout-car-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 18px;
+  color: #0A192F;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Địa điểm */
+.checkout-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #64748B;
+  margin-top: 7px;
+}
+
+/* Divider */
+.checkout-divider {
+  height: 1px;
+  background: #F1F5F9;
+  margin: 16px 0;
+}
+
+/* Ngày đón/trả */
+.checkout-dates-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.checkout-date-col {
+  background: #F8FAFC;
+  border: 1px solid #EEF2F7;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.checkout-date-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 5px;
+}
+
+.checkout-date-value {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+  color: #0A192F;
+}
+
+.checkout-date-time {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #64748B;
+  margin-top: 3px;
+}
+
+/* Duration */
+.checkout-duration-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F8FAFC;
+  border: 1px solid #EEF2F7;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.checkout-duration-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #64748B;
+}
+
+.checkout-duration-val {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 800;
+  color: #0891B2;
+}
+
+/* Daily rate */
+.checkout-rate-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-rate-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #64748B;
+}
+
+.checkout-rate-val {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: #475569;
+}
+
+/* Total */
+.checkout-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ECFEFF;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-top: 4px;
+}
+
+.checkout-total-label {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 900;
+  color: #0A192F;
+}
+
+.checkout-total-val {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 900;
+  color: #0891B2;
+}
+
+/* ═══════════════════════════════════════
+   CỘT PHẢI — PAYMENT FORM
+═══════════════════════════════════════ */
+.payment-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  border: 1px solid #E2E8F0;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+.payment-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  color: #0A192F;
+}
+
+/* Bank Card button */
+.payment-method-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #0A192F, #1E293B);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.22);
+}
+
+.payment-method-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.28);
+}
+
+/* Field wrapper */
+.payment-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Label */
+.payment-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Input wrapper */
+.payment-input-wrap {
+  position: relative;
+}
+
+/* Input */
+.payment-input {
+  display: block;
+  width: 100%;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #0A192F;
+  outline: none;
+  background: #FFFFFF;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.payment-input:focus {
+  border-color: #22D3EE;
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12);
+  background: #FCFEFF;
+}
+
+.payment-input::placeholder {
+  color: #CBD5E1;
+}
+
+/* Card type mini icons */
+.payment-card-icons {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.card-icon-box {
+  display: block;
+  width: 28px;
+  height: 18px;
+  background: linear-gradient(135deg, #E2E8F0, #CBD5E1);
+  border-radius: 5px;
+}
+
+/* Expiry + CVV row */
+.payment-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* CVV info icon */
+.cvv-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* CONFIRM & PAY */
+.confirm-pay-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, #22D3EE, #06B6D4);
+  color: #0A192F;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 16px 34px rgba(34, 211, 238, 0.28);
+}
+
+.confirm-pay-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 42px rgba(34, 211, 238, 0.36);
+}
+
+.confirm-pay-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .checkout-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .checkout-header {
+    padding: 36px 20px 0;
+  }
+
+  .checkout-main {
+    padding: 24px 20px 44px;
+  }
+
+  .payment-card {
+    padding: 24px;
+  }
+
+  .checkout-dates-row,
+  .payment-row {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-title {
+    font-size: 28px;
+  }
+}
+.payment-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.payment-method-grid .payment-method-btn {
+  width: 100%;
+  background: #F8FAFC;
+  color: #0A192F;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  text-align: left;
+}
+
+.payment-method-grid .payment-method-btn span {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.payment-method-grid .payment-method-btn small {
+  color: #64748B;
+  font-size: 11px;
+  font-family: var(--font-body);
+}
+
+.payment-method-grid .payment-method-btn--active {
+  background: linear-gradient(135deg, #0A192F, #1E293B);
+  color: #FFFFFF;
+  border-color: #0A192F;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.18);
+}
+
+.payment-method-grid .payment-method-btn--active small {
+  color: #A5F3FC;
+}
+
+.payment-demo-note {
+  background: #ECFEFF;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  color: #0E7490;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.payment-card-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payment-card-fields--disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+@media (max-width: 560px) {
+  .payment-method-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cash / Bank Card only checkout update */
+.payment-method-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.payment-cash-note {
+  background: linear-gradient(135deg, #ECFEFF, #F8FAFC);
+  border: 1px solid rgba(34, 211, 238, 0.38);
+  border-radius: 16px;
+  padding: 18px;
+  color: #0A192F;
+}
+
+.payment-cash-note h3 {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 900;
+  margin: 0 0 8px;
+  color: #0E7490;
+}
+
+.payment-cash-note p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0;
+}
+
+.payment-cash-summary {
+  margin-top: 16px;
+  background: #FFFFFF;
+  border: 1px solid #BAE6FD;
+  border-radius: 13px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.payment-cash-summary span {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #64748B;
+}
+
+.payment-cash-summary strong {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 900;
+  color: #0891B2;
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .payment-method-grid--two {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-cash-summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .payment-cash-summary strong {
+    text-align: left;
+  }
+}

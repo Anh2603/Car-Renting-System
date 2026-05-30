@@ -1,0 +1,190 @@
+.contact-simple-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(33, 212, 239, 0.16), transparent 34%),
+    radial-gradient(circle at 85% 18%, rgba(33, 212, 239, 0.12), transparent 32%),
+    linear-gradient(135deg, #07152f 0%, #0a1930 46%, #04101f 100%);
+  color: #ffffff;
+  font-family: var(--font-main, Inter, Arial, sans-serif);
+  padding: 72px 20px 88px;
+}
+
+.contact-simple-wrap {
+  width: min(620px, 100%);
+  margin: 0 auto;
+}
+
+.contact-simple-wrap h1 {
+  margin: 0 0 24px;
+  color: #ffffff;
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.contact-simple-wrap h1::after {
+  content: '';
+  display: block;
+  width: 76px;
+  height: 5px;
+  margin-top: 18px;
+  border-radius: 999px;
+  background: #21d4ef;
+  box-shadow: 0 0 24px rgba(33, 212, 239, 0.45);
+}
+
+.contact-simple-wrap p {
+  margin: 0 0 22px;
+  color: #9db8dd;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.contact-required-note {
+  margin-top: 8px !important;
+  margin-bottom: 22px !important;
+  color: #cfe8ff !important;
+  font-weight: 700;
+}
+
+.contact-simple-alert {
+  margin: 0 0 18px;
+  border: 1px solid rgba(33, 212, 239, 0.45);
+  background: rgba(33, 212, 239, 0.12);
+  color: #dffbff;
+  border-radius: 18px;
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.contact-simple-form {
+  display: grid;
+  gap: 15px;
+}
+
+.contact-simple-form input,
+.contact-simple-form select,
+.contact-simple-form textarea {
+  width: 100%;
+  border: 1px solid rgba(157, 184, 221, 0.26);
+  border-radius: 16px;
+  background: rgba(9, 27, 52, 0.88);
+  color: #ffffff;
+  font-family: var(--font-main, Inter, Arial, sans-serif);
+  font-size: 15px;
+  outline: none;
+  padding: 18px 19px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-simple-form select {
+  cursor: pointer;
+  color: #d8ecff;
+}
+
+.contact-simple-form select option {
+  background: #07152f;
+  color: #ffffff;
+}
+
+.contact-simple-form textarea {
+  min-height: 230px;
+  resize: vertical;
+}
+
+.contact-simple-form input::placeholder,
+.contact-simple-form textarea::placeholder {
+  color: #9db8dd;
+  letter-spacing: 0.02em;
+}
+
+.contact-simple-form input:focus,
+.contact-simple-form select:focus,
+.contact-simple-form textarea:focus {
+  border-color: #21d4ef;
+  box-shadow: 0 0 0 4px rgba(33, 212, 239, 0.15), 0 16px 34px rgba(0, 0, 0, 0.18);
+  background: rgba(12, 34, 62, 0.96);
+  transform: translateY(-1px);
+}
+
+.contact-attachment-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  color: #cfe8ff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-attachment-line:hover {
+  color: #21d4ef;
+  transform: translateX(2px);
+}
+
+.contact-attachment-line input {
+  display: none;
+}
+
+.contact-attachment-line span {
+  color: #21d4ef;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.contact-simple-form button {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2dd9f2 0%, #12b8d4 100%);
+  color: #07152f;
+  cursor: pointer;
+  font-family: var(--font-main, Inter, Arial, sans-serif);
+  font-size: 18px;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  padding: 15px 26px;
+  text-transform: uppercase;
+  box-shadow: 0 20px 42px rgba(33, 212, 239, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.contact-simple-form button:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 24px 52px rgba(33, 212, 239, 0.34);
+  transform: translateY(-2px);
+}
+
+.contact-simple-form button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .contact-simple-page {
+    padding: 46px 18px 64px;
+  }
+
+  .contact-simple-wrap h1 {
+    margin-bottom: 20px;
+  }
+
+  .contact-simple-wrap p {
+    font-size: 15px;
+  }
+
+  .contact-simple-form textarea {
+    min-height: 185px;
+  }
+}
+
+.contact-simple-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+  box-shadow: none;
+}
