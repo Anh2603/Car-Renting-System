@@ -24,7 +24,15 @@ https://car-renting-system-qe9k.onrender.com/api/health
 
 Car Renting System is a web-based rental management platform designed to help customers book cars online and help staff/admin users manage daily rental operations.
 
-The system provides a complete rental workflow from vehicle browsing, booking, checkout, pickup, return, payment tracking, maintenance management, and customer support.
+The system provides a complete rental workflow from vehicle browsing, booking, checkout, pickup confirmation, vehicle return, payment tracking, maintenance management, and customer support.
+
+The application supports three main roles:
+
+* Customer
+* Staff
+* Admin
+
+Each role has different permissions and interface functions.
 
 ---
 
@@ -34,33 +42,36 @@ The system provides a complete rental workflow from vehicle browsing, booking, c
 
 * Register and log in with JWT authentication
 * Browse available vehicles
-* Filter cars by category and rental schedule
+* Filter cars by category, keyword, and rental schedule
+* View car details before booking
 * Create car bookings
 * Checkout with Bank Card demo or Cash at pickup
 * View personal booking history
 * Cancel eligible bookings before pickup
 * Submit support messages with optional attachments
-* Update profile and change password
+* Update profile information
+* Change password
 * Switch interface language between English and Vietnamese
 
 ### Staff Features
 
 * View operational dashboard
-* Manage all bookings
+* Manage operational bookings
 * Mark confirmed bookings as picked up
 * Complete vehicle returns
 * Send returned cars to maintenance if needed
 * Confirm Cash payment during pickup
+* Cancel eligible bookings
 * View and update support messages
 * Update operational car status
 
 ### Admin Features
 
 * View dashboard statistics
-* Manage cars, users, staff, bookings, payments, and support messages
+* Manage cars, users, staff accounts, bookings, payments, and support messages
 * Create and update car records
 * Create staff accounts
-* Update account status
+* Update user and staff account status
 * Update booking and payment status
 * Review contact support messages and attachments
 * Manage vehicle availability and maintenance status
@@ -72,8 +83,10 @@ The system provides a complete rental workflow from vehicle browsing, booking, c
 ### Frontend
 
 * React 18
-* React Router
-* Axios
+* React DOM
+* React state-based navigation with browser History API
+* Fetch API for backend requests
+* Context API for language support
 * CSS3
 
 ### Backend
@@ -84,11 +97,13 @@ The system provides a complete rental workflow from vehicle browsing, booking, c
 * bcryptjs
 * multer
 * mysql2
+* dotenv
+* cors
 
 ### Database
 
 * MySQL
-* Railway MySQL Cloud Database
+* Railway MySQL Cloud Database for deployment
 
 ### Deployment
 
@@ -110,6 +125,8 @@ Express Backend API - Render
 MySQL Database - Railway
 ```
 
+The frontend sends HTTP requests to the Express backend API. The backend validates requests, applies authentication and role-based authorization, executes business logic, and communicates with the MySQL database.
+
 ---
 
 ## Folder Structure
@@ -118,12 +135,26 @@ MySQL Database - Railway
 Car-Renting-System/
 ├── car-renting-backend/
 │   ├── config/
+│   │   └── db.js
 │   ├── controllers/
+│   │   ├── adminController.js
+│   │   ├── authController.js
+│   │   ├── bookingController.js
+│   │   ├── carController.js
+│   │   ├── contactController.js
+│   │   ├── paymentController.js
+│   │   └── staffController.js
 │   ├── database/
+│   │   ├── schema.sql
+│   │   ├── seed.sql
+│   │   ├── admin_seed.sql
+│   │   └── staff_seed.sql
 │   ├── middleware/
 │   ├── routes/
 │   ├── uploads/
 │   │   └── contact/
+│   ├── .env
+│   ├── .env.example
 │   ├── package.json
 │   └── server.js
 │
@@ -135,7 +166,8 @@ Car-Renting-System/
     │   ├── pages/
     │   ├── services/
     │   └── utils/
-    └── package.json
+    ├── package.json
+    └── package-lock.json
 ```
 
 ---
@@ -144,15 +176,15 @@ Car-Renting-System/
 
 ### Customer
 
-Customers can browse cars, create bookings, make payments, manage personal bookings, and contact support.
+Customers can browse cars, create bookings, make payments, manage personal bookings, update profile information, change password, and contact support.
 
 ### Staff
 
-Staff users handle daily rental operations such as pickup confirmation, vehicle returns, cash payment confirmation, and maintenance updates.
+Staff users handle daily rental operations such as pickup confirmation, vehicle return processing, cash payment confirmation, support message review, cancellation, and maintenance updates.
 
 ### Admin
 
-Admin users have full management access over cars, bookings, payments, users, staff accounts, and support messages.
+Admin users have full management access over cars, bookings, payments, users, staff accounts, support messages, and dashboard statistics.
 
 ---
 
@@ -165,6 +197,8 @@ Admin users have full management access over cars, bookings, payments, users, st
 ---
 
 ## Car Status Flow
+
+Normal rental flow:
 
 ```text
 AVAILABLE
@@ -190,6 +224,8 @@ A rented car cannot be manually changed back to available before the return proc
 
 ## Booking Status Flow
 
+Normal booking flow:
+
 ```text
 PENDING
 ↓
@@ -207,6 +243,8 @@ PENDING / CONFIRMED
 ↓
 CANCELLED
 ```
+
+Picked-up or completed bookings are protected from normal customer cancellation.
 
 ---
 
@@ -245,6 +283,8 @@ Car status becomes RENTED
 ---
 
 ## Staff Operations Flow
+
+Pickup flow:
 
 ```text
 All Bookings
@@ -287,18 +327,26 @@ Car becomes MAINTENANCE
 ## Contact Support Flow
 
 ```text
-Customer submits Contact Us form
+Customer or guest submits Contact Us form
 ↓
 Message is stored in MySQL
 ↓
 Optional attachment is saved in uploads/contact
 ↓
-Admin/Staff review message
+Admin or Staff reviews the message
 ↓
 Message status can be updated
 ```
 
-Supported attachment types include image and PDF files.
+Supported attachment types:
+
+* JPG
+* JPEG
+* PNG
+* WEBP
+* PDF
+
+Maximum attachment size: 5MB.
 
 ---
 
@@ -310,7 +358,7 @@ The application supports English and Vietnamese through:
 car-renting-frontend/src/i18n/LanguageContext.jsx
 ```
 
-The selected language is stored in localStorage.
+The selected language is stored in `localStorage`.
 
 ---
 
@@ -371,6 +419,8 @@ PATCH /api/admin/users/:id/status
 GET   /api/admin/staff
 POST  /api/admin/staff
 PATCH /api/admin/staff/:id/status
+GET   /api/admin/contact-messages
+PATCH /api/admin/contact-messages/:id/status
 ```
 
 ### Staff
@@ -382,41 +432,237 @@ PATCH /api/staff/bookings/:id/pickup
 PATCH /api/staff/bookings/:id/complete
 PATCH /api/staff/bookings/:id/cancel
 PATCH /api/staff/cars/:id/status
+GET   /api/staff/contact-messages
+PATCH /api/staff/contact-messages/:id/status
 ```
 
 ### Contact Support
 
 ```http
-POST  /api/contact
-GET   /api/contact/messages
-PATCH /api/contact/messages/:id/status
+POST /api/contact
+```
+
+---
+
+## Local Installation
+
+### 1. Clone or open the project folder
+
+```bash
+cd Car-Renting-System-user
+```
+
+### 2. Install backend dependencies
+
+```bash
+cd car-renting-backend
+npm install
+```
+
+### 3. Install frontend dependencies
+
+```bash
+cd ../car-renting-frontend
+npm install
+```
+
+---
+
+## Database Setup
+
+Create a MySQL database:
+
+```sql
+CREATE DATABASE car_renting_system;
+```
+
+Import the SQL files from:
+
+```text
+car-renting-backend/database/
+```
+
+Recommended import order:
+
+```text
+schema.sql
+seed.sql
+admin_seed.sql
+staff_seed.sql
+```
+
+---
+
+## Environment Configuration
+
+### Backend `.env`
+
+Create or update:
+
+```text
+car-renting-backend/.env
+```
+
+Example local configuration:
+
+```env
+NODE_ENV=development
+PORT=5000
+CLIENT_URL=http://localhost:3000
+
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=car_renting_system
+
+JWT_SECRET=dev_secret_for_classroom_demo
+BCRYPT_SALT_ROUNDS=10
+```
+
+For classroom ZIP submission, a local/demo `.env` file may be included. Do not include private Railway credentials or production secrets in a public repository.
+
+### Backend `.env.example`
+
+The project should also include:
+
+```text
+car-renting-backend/.env.example
+```
+
+Example:
+
+```env
+NODE_ENV=development
+PORT=5000
+CLIENT_URL=http://localhost:3000
+
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=car_renting_system
+
+JWT_SECRET=replace_this_with_a_secret_key
+BCRYPT_SALT_ROUNDS=10
+```
+
+### Frontend Environment Variable
+
+For deployed frontend builds:
+
+```env
+REACT_APP_API_URL=https://car-renting-system-qe9k.onrender.com
+```
+
+For local development, the frontend can call the local backend:
+
+```env
+REACT_APP_API_URL=http://localhost:5000
+```
+
+---
+
+## Running the Project Locally
+
+### Start backend
+
+```bash
+cd car-renting-backend
+npm run dev
+```
+
+Backend URL:
+
+```text
+http://localhost:5000
+```
+
+Health check:
+
+```text
+http://localhost:5000/api/health
+```
+
+### Start frontend
+
+Open a new terminal:
+
+```bash
+cd car-renting-frontend
+npm start
+```
+
+Frontend URL:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## Build Test
+
+To check whether the frontend can build successfully:
+
+```bash
+cd car-renting-frontend
+npm run build
+```
+
+To check backend JavaScript syntax:
+
+```bash
+cd car-renting-backend
+node --check server.js
+```
+
+PowerShell command to check all backend JavaScript files:
+
+```powershell
+Get-ChildItem -Recurse -Filter *.js | Where-Object { $_.FullName -notmatch "node_modules" } | ForEach-Object { node --check $_.FullName }
 ```
 
 ---
 
 ## Deployment Configuration
 
-### Frontend Environment Variable
+### Frontend Deployment
+
+Platform: Vercel
+
+Environment variable:
 
 ```env
 REACT_APP_API_URL=https://car-renting-system-qe9k.onrender.com
 ```
 
-### Backend Environment Variables
+### Backend Deployment
+
+Platform: Render
+
+Environment variables:
 
 ```env
 NODE_ENV=production
 PORT=5000
 CLIENT_URL=https://car-renting-system-2603.vercel.app
+
 DB_HOST=your_railway_mysql_public_host
 DB_PORT=your_railway_mysql_public_port
 DB_USER=your_railway_mysql_user
 DB_PASSWORD=your_railway_mysql_password
 DB_NAME=railway
+
 JWT_SECRET=your_secret_key
+BCRYPT_SALT_ROUNDS=10
 ```
 
-The real `.env` file must not be committed to GitHub.
+### Database Deployment
+
+Platform: Railway MySQL
+
+The Render backend connects to Railway MySQL using the public Railway host, port, username, password, and database name stored in Render environment variables.
 
 ---
 
@@ -440,67 +686,95 @@ Password: 123456
 
 Customers can create accounts from the public Register page.
 
+Example customer account used during testing:
+
+```text
+Email: suddenalice@gmail.com
+Password: 123456
+```
+
 ---
 
 ## Project Status
 
-The system has been fully developed and deployed in a production environment.
+The system has been developed and deployed as a full-stack web application.
 
 Implemented modules include:
 
 * Authentication and authorization
+* Role-based access control
+* Vehicle browsing and filtering
 * Vehicle management
-* Booking management
+* Booking creation and booking history
+* Date-based availability checking
+* Double-booking prevention
 * Payment management
+* Staff pickup and return workflow
+* Maintenance workflow
 * Customer support system
 * Attachment upload
-* Maintenance workflow
 * Admin dashboard
 * Staff operations dashboard
 * English / Vietnamese language support
-
-Deployment infrastructure:
-
-* Frontend hosted on Vercel
-* Backend API hosted on Render
-* MySQL database hosted on Railway
+* Production deployment using Vercel, Render, and Railway
 
 ---
 
-## Notes
+## Known Limitations
 
-This project should not commit:
+* Bank Card payment is a demo flow and is not connected to a real payment gateway.
+* Availability checking is mainly date-based and does not fully support hourly-level rental conflicts.
+* The project mainly uses manual testing and does not yet include a full automated test suite.
+* Contact attachments are stored in the backend upload directory instead of cloud object storage.
+* Render free-tier hosting may cause cold-start delays.
+* Email notifications are not implemented yet.
+* JWT refresh tokens and password reset by email are not implemented yet.
+
+---
+
+## Notes for Submission
+
+The submission ZIP should avoid unnecessary runtime or dependency files:
 
 * `node_modules/`
-* `.env`
 * `debug.log`
 * frontend `build/`
 * uploaded runtime files used only for local testing
+
+The `.env` file may be included in a classroom ZIP only when it contains local/demo values. Do not include private production credentials.
 
 Recommended `.gitignore` entries:
 
 ```gitignore
 node_modules/
-.env
 *.log
 build/
 dist/
 .DS_Store
 
 car-renting-backend/node_modules/
-car-renting-backend/.env
 car-renting-backend/uploads/contact/*
 !car-renting-backend/uploads/contact/.gitkeep
 
 car-renting-frontend/node_modules/
-car-renting-frontend/.env
 car-renting-frontend/build/
+
+# For public GitHub repositories, also ignore:
+# .env
+# car-renting-backend/.env
+# car-renting-frontend/.env
 ```
 
 ---
 
 ## Authors
 
-Car Renting System Development Team
+Car Renting System Team
 
-2026
+* Nguyễn Trung Anh
+* Lê Đoàn Minh Ngọc
+* Đỗ Phú Thành
+
+Course: Web Application Development
+
+Year: 2026
