@@ -5,7 +5,22 @@ import { formatDateLabel } from '../../utils/bookingFormat';
 import { useLanguage } from '../../i18n/LanguageContext';
 import './CheckoutPage.css';
 
-function CheckoutPage({ booking, car, createdBooking, onPay, onHome }) {
+function CheckoutPage({
+  booking,
+  car,
+  createdBooking,
+  onPay,
+  onHome,
+  user,
+  isLoggedIn,
+  onLogin,
+  onLogout,
+  onMyBookings,
+  onProfile,
+  onChangePassword,
+  onAdminPanel,
+  onStaffPanel,
+}) {
   const { t } = useLanguage();
   const [cardNum, setCardNum] = useState('');
   const [expiry, setExpiry] = useState('');
@@ -74,7 +89,18 @@ function CheckoutPage({ booking, car, createdBooking, onPay, onHome }) {
   if (!car) {
     return (
       <div className="checkout-page">
-        <DarkNavbar onHome={onHome} />
+        <DarkNavbar
+          onHome={onHome}
+          onLogin={onLogin}
+          onLogout={onLogout}
+          onMyBookings={onMyBookings}
+          onProfile={onProfile}
+          onChangePassword={onChangePassword}
+          onAdminPanel={onAdminPanel}
+          onStaffPanel={onStaffPanel}
+          isLoggedIn={isLoggedIn}
+          user={user}
+        />
         <div className="checkout-header">
           <h1 className="checkout-title">{t('checkout.noCarTitle')}</h1>
           <p className="checkout-subtitle">{t('checkout.noCarSubtitle')}</p>
@@ -86,7 +112,18 @@ function CheckoutPage({ booking, car, createdBooking, onPay, onHome }) {
 
   return (
     <div className="checkout-page">
-      <DarkNavbar onHome={onHome} />
+      <DarkNavbar
+          onHome={onHome}
+          onLogin={onLogin}
+          onLogout={onLogout}
+          onMyBookings={onMyBookings}
+          onProfile={onProfile}
+          onChangePassword={onChangePassword}
+          onAdminPanel={onAdminPanel}
+          onStaffPanel={onStaffPanel}
+          isLoggedIn={isLoggedIn}
+          user={user}
+        />
 
       <div className="checkout-header">
         <h1 className="checkout-title">{t('checkout.title')}</h1>

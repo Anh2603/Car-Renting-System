@@ -27,7 +27,7 @@ const initialBookingState = {
   returnDate: null,
   pickupTime: '09:00 AM',
   returnTime: '06:30 PM',
-  days: 5,
+  days: 3,
 
   customerFullName: '',
   customerPhone: '',
@@ -445,6 +445,18 @@ function App() {
     }
   };
 
+  const commonNavbarProps = {
+    user,
+    isLoggedIn: Boolean(user || localStorage.getItem('token')),
+    onLogin: () => goToPage('login'),
+    onLogout: handleLogout,
+    onMyBookings: handleOpenMyBookings,
+    onProfile: handleOpenProfile,
+    onChangePassword: handleOpenChangePassword,
+    onAdminPanel: () => goToPage('admin'),
+    onStaffPanel: () => goToPage('staff'),
+  };
+
   const renderPage = () => {
     switch (page) {
       case 'staff':
@@ -512,6 +524,7 @@ function App() {
             onSelectCar={handleSelectCar}
             onHome={() => goToPage('home')}
             onEditSchedule={() => goToPage('datetime')}
+            {...commonNavbarProps}
           />
         );
 
@@ -524,6 +537,7 @@ function App() {
             onNext={handleCreateBooking}
             onHome={() => goToPage('home')}
             onBackToFleet={() => goToPage('fleet')}
+            {...commonNavbarProps}
           />
         ) : (
           <FleetPage
@@ -531,6 +545,7 @@ function App() {
             onSelectCar={handleSelectCar}
             onHome={() => goToPage('home')}
             onEditSchedule={() => goToPage('datetime')}
+            {...commonNavbarProps}
           />
         );
 
@@ -542,6 +557,7 @@ function App() {
             createdBooking={createdBooking}
             onPay={handleCreatePayment}
             onHome={() => goToPage('home')}
+            {...commonNavbarProps}
           />
         ) : (
           <FleetPage
@@ -549,6 +565,7 @@ function App() {
             onSelectCar={handleSelectCar}
             onHome={() => goToPage('home')}
             onEditSchedule={() => goToPage('datetime')}
+            {...commonNavbarProps}
           />
         );
 
@@ -604,6 +621,7 @@ function App() {
           <MyBookingsPage
             onHome={() => goToPage('home')}
             onLogin={() => goToPage('login')}
+            {...commonNavbarProps}
           />
         );
 

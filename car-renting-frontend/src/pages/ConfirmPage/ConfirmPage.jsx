@@ -3,7 +3,22 @@ import { DarkNavbar } from '../../components/Navbar/Navbar';
 import { FleetFooter } from '../../components/Footer/Footer';
 import './ConfirmPage.css';
 
-function ConfirmPage({ booking, setBooking, car, onNext, onHome }) {
+function ConfirmPage({
+  booking,
+  setBooking,
+  car,
+  onNext,
+  onHome,
+  user,
+  isLoggedIn,
+  onLogin,
+  onLogout,
+  onMyBookings,
+  onProfile,
+  onChangePassword,
+  onAdminPanel,
+  onStaffPanel,
+}) {
   const [step, setStep] = useState('summary');
   const days = booking?.days || 3;
 
@@ -26,7 +41,18 @@ function ConfirmPage({ booking, setBooking, car, onNext, onHome }) {
   if (!car) {
     return (
       <div className="confirm-page">
-        <DarkNavbar onHome={onHome} />
+        <DarkNavbar
+          onHome={onHome}
+          onLogin={onLogin}
+          onLogout={onLogout}
+          onMyBookings={onMyBookings}
+          onProfile={onProfile}
+          onChangePassword={onChangePassword}
+          onAdminPanel={onAdminPanel}
+          onStaffPanel={onStaffPanel}
+          isLoggedIn={isLoggedIn}
+          user={user}
+        />
         <div className="confirm-header">
           <h1 className="confirm-page-title">No car selected</h1>
         </div>
@@ -206,7 +232,18 @@ function ConfirmPage({ booking, setBooking, car, onNext, onHome }) {
 
   return (
     <div className="confirm-page">
-      <DarkNavbar onHome={onHome} />
+      <DarkNavbar
+          onHome={onHome}
+          onLogin={onLogin}
+          onLogout={onLogout}
+          onMyBookings={onMyBookings}
+          onProfile={onProfile}
+          onChangePassword={onChangePassword}
+          onAdminPanel={onAdminPanel}
+          onStaffPanel={onStaffPanel}
+          isLoggedIn={isLoggedIn}
+          user={user}
+        />
 
       <div className="confirm-header">
         <h1 className="confirm-page-title">

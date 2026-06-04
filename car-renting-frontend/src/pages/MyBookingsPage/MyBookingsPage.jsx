@@ -5,7 +5,16 @@ import { getMyBookings, cancelMyBooking } from '../../services/bookingService';
 import { useLanguage } from '../../i18n/LanguageContext';
 import './MyBookingsPage.css';
 
-function MyBookingsPage({ onHome, onLogin }) {
+function MyBookingsPage({
+  onHome,
+  onLogin,
+  user,
+  onLogout,
+  onProfile,
+  onChangePassword,
+  onAdminPanel,
+  onStaffPanel,
+}) {
   const { t } = useLanguage();
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -128,9 +137,14 @@ function MyBookingsPage({ onHome, onLogin }) {
       <DarkNavbar
         onHome={onHome}
         onLogin={onLogin}
+        onLogout={onLogout}
         onMyBookings={() => {}}
-        onHelp={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onProfile={onProfile}
+        onChangePassword={onChangePassword}
+        onAdminPanel={onAdminPanel}
+        onStaffPanel={onStaffPanel}
         isLoggedIn={isLoggedIn}
+        user={user}
       />
 
       <main className="my-bookings-container">

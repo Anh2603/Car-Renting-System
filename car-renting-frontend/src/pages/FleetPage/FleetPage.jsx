@@ -29,7 +29,21 @@ const VEHICLE_CATEGORIES = [
   },
 ];
 
-function FleetPage({ booking, onSelectCar, onHome, onEditSchedule }) {
+function FleetPage({
+  booking,
+  onSelectCar,
+  onHome,
+  onEditSchedule,
+  user,
+  isLoggedIn,
+  onLogin,
+  onLogout,
+  onMyBookings,
+  onProfile,
+  onChangePassword,
+  onAdminPanel,
+  onStaffPanel,
+}) {
   const [cars, setCars] = useState([]);
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('lowest');
@@ -37,11 +51,7 @@ function FleetPage({ booking, onSelectCar, onHome, onEditSchedule }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  /*
-    Booking data can come from different pages/API responses.
-    Some use camelCase, some use snake_case.
-    These fallback values prevent FleetPage from losing pickup/return dates.
-  */
+  
   const rawPickupDate =
     booking?.pickupDate ||
     booking?.pickup_date ||
@@ -154,7 +164,18 @@ function FleetPage({ booking, onSelectCar, onHome, onEditSchedule }) {
 
   return (
     <div className="fleet-page">
-      <DarkNavbar onHome={onHome} />
+      <DarkNavbar
+        onHome={onHome}
+        onLogin={onLogin}
+        onLogout={onLogout}
+        onMyBookings={onMyBookings}
+        onProfile={onProfile}
+        onChangePassword={onChangePassword}
+        onAdminPanel={onAdminPanel}
+        onStaffPanel={onStaffPanel}
+        isLoggedIn={isLoggedIn}
+        user={user}
+      />
 
       <div className="fleet-container">
         <div className="fleet-header">
